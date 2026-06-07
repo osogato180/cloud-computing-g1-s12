@@ -5,3 +5,13 @@ services:
     image: ryanmedina/app
     ports:
       - "5001:5000"
+
+  app2:
+    image: danteuchofen/app
+    ports:
+      - "5002:5000"
+
+  app3:
+    image: josebaldeon/app
+    ports:
+      - "5003:5000"
