@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Cloud Computing G1</title>
+    <meta charset="UTF-8">
+    <title>La Tiendita de Don Pepe</title>
 </head>
 <body>
-  <h1>Frontend activo</h1>
-  <p>Conectado a Docker</p>
+    <h1>🛒 La Tiendita de Don Pepe</h1>
+    <p>Productos disponibles:</p>
+
+    <ul id="lista"></ul>
+
+    <script>
+        fetch("/api/productos")
+            .then(response => response.json())
+            .then(data => {
+                const lista = document.getElementById("lista");
+                data.forEach(p => {
+                    const item = document.createElement("li");
+                    item.textContent = `${p.nombre} - S/ ${p.precio}`;
+                    lista.appendChild(item);
+                });
+            });
+    </script>
 </body>
 </html>
